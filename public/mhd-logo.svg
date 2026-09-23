@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Circular gradient background -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B4332" />
+      <stop offset="100%" stop-color="#2D6A4F" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E7C4" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#AA820A" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#74C69D" />
+      <stop offset="100%" stop-color="#40916C" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Ring with Subtle Glow -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="8" />
+  <circle cx="256" cy="256" r="222" stroke="#ffffff" stroke-opacity="0.15" stroke-dasharray="4 6" stroke-width="2" />
+
+  <!-- Botanical Laurel / Leaves Arc -->
+  <path d="M 120 280 C 110 200, 150 140, 210 110 C 190 140, 195 180, 220 200" fill="url(#leafGrad)" opacity="0.85" />
+  <path d="M 392 280 C 402 200, 362 140, 302 110 C 322 140, 317 180, 292 200" fill="url(#leafGrad)" opacity="0.85" />
+
+  <!-- Central Homoeopathic Healing Droplet & Seed -->
+  <path d="M256 120 C256 120, 200 200, 200 250 C200 280.9 225.1 306 256 306 C286.9 306 312 280.9 312 250 C312 200, 256 120, 256 120 Z" fill="#ffffff" fill-opacity="0.12" stroke="url(#goldGrad)" stroke-width="3"/>
+  <circle cx="256" cy="255" r="14" fill="url(#goldGrad)"/>
+
+  <!-- MHD Monogram -->
+  <text x="256" y="278" font-family="'Plus Jakarta Sans', 'Cinzel', 'Playfair Display', Georgia, sans-serif" font-size="94" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="4">MHD</text>
+
+  <!-- Subtitle Ribbon Text -->
+  <text x="256" y="342" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="21" font-weight="700" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="6">MADAPPALLIL</text>
+  <text x="256" y="372" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="600" fill="#E1EFE8" text-anchor="middle" letter-spacing="4">HOMOEO DISPENSARY</text>
+
+  <!-- 35+ Years Badge Pill -->
+  <rect x="180" y="405" width="152" height="34" rx="17" fill="#ffffff" fill-opacity="0.12" stroke="url(#goldGrad)" stroke-width="1.5"/>
+  <text x="256" y="427" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">ESTD. 35+ YEARS</text>
+</svg>
