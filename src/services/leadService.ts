@@ -2,6 +2,7 @@ import { LeadData } from '../types';
 
 const STORAGE_KEY = 'mhd_clinic_leads';
 const SCRIPT_URL_KEY = 'mhd_google_script_url';
+const BACKEND_URL_KEY = 'mhd_backend_url';
 const DOCTOR_EMAIL_KEY = 'mhd_doctor_email';
 
 export const getSavedScriptUrl = (): string => {
@@ -10,6 +11,14 @@ export const getSavedScriptUrl = (): string => {
 
 export const setSavedScriptUrl = (url: string): void => {
   localStorage.setItem(SCRIPT_URL_KEY, url.trim());
+};
+
+export const getSavedBackendUrl = (): string => {
+  return localStorage.getItem(BACKEND_URL_KEY) || (import.meta as any).env?.VITE_BACKEND_URL || '';
+};
+
+export const setSavedBackendUrl = (url: string): void => {
+  localStorage.setItem(BACKEND_URL_KEY, url.trim());
 };
 
 export const getSavedDoctorEmail = (): string => {
@@ -55,11 +64,37 @@ export const submitLead = async (data: Omit<LeadData, 'id' | 'submittedAt' | 'st
   // Always save locally first so no lead can ever be lost
   saveLeadLocally(fullLead);
 
+  const backendUrl = getSavedBackendUrl();
   const scriptUrl = getSavedScriptUrl();
 
-  if (scriptUrl) {
+  let sent = false;
+
+  // 1. Dispatch to Render Free Backend if configured
+  if (backendUrl) {
     try {
-      // Submit to Google Apps Script Web App
+      const cleanUrl = backendUrl.replace(/\/+$/, '');
+      const response = await fetch(`${cleanUrl}/api/leads`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...fullLead,
+          targetEmail: getSavedDoctorEmail(),
+        }),
+      });
+
+      if (response.ok) {
+        sent = true;
+      }
+    } catch (e) {
+      console.warn('Backend API submission failed, trying fallback:', e);
+    }
+  }
+
+  // 2. Dispatch to Google Apps Script Web App if configured and not yet sent
+  if (scriptUrl && !sent) {
+    try {
       // Using mode: 'no-cors' allows submission to Google Apps Script without CORS blockage
       await fetch(scriptUrl, {
         method: 'POST',
@@ -73,28 +108,33 @@ export const submitLead = async (data: Omit<LeadData, 'id' | 'submittedAt' | 'st
         }),
       });
 
-      return {
-        success: true,
-        leadId,
-        isSimulated: false,
-        message: 'Lead saved to Google Sheet & email alert dispatched.',
-      };
+      sent = true;
     } catch (err) {
       console.warn('Google Script dispatch failed, saved to local clinic vault', err);
-      return {
-        success: true,
-        leadId,
-        isSimulated: true,
-        message: 'Lead captured securely in local register. Network retry scheduled.',
-      };
     }
-  } else {
-    // Simulated mode (before Google Apps Script URL is pasted)
+  }
+
+  if (sent) {
+    return {
+      success: true,
+      leadId,
+      isSimulated: false,
+      message: 'Lead logged successfully and doctor notification dispatched.',
+    };
+  } else if (!backendUrl && !scriptUrl) {
+    // Simulated mode (before Google Apps Script or Backend URL is connected)
     return {
       success: true,
       leadId,
       isSimulated: true,
-      message: 'Simulated submission successful. Connect your Google Sheet in settings.',
+      message: 'Simulated submission successful. Connect your Google Sheet or Backend in settings.',
+    };
+  } else {
+    return {
+      success: true,
+      leadId,
+      isSimulated: true,
+      message: 'Lead captured securely in local register. Network retry scheduled.',
     };
   }
 };

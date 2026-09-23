@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import {
   getSavedScriptUrl,
   setSavedScriptUrl,
+  getSavedBackendUrl,
+  setSavedBackendUrl,
   getSavedDoctorEmail,
   setSavedDoctorEmail,
   generateGoogleAppsScriptCode,
   submitLead
 } from '../services/leadService';
-import { X, Copy, Check, ExternalLink, Mail, Table, Send, Sparkles } from 'lucide-react';
+import { X, Copy, Check, ExternalLink, Mail, Table, Send, Sparkles, Server } from 'lucide-react';
 
 interface GoogleSheetSetupModalProps {
   isOpen: boolean;
@@ -19,6 +21,7 @@ export const GoogleSheetSetupModal: React.FC<GoogleSheetSetupModalProps> = ({
   onClose,
 }) => {
   const [scriptUrl, setScriptUrl] = useState(getSavedScriptUrl());
+  const [backendUrl, setBackendUrl] = useState(getSavedBackendUrl());
   const [doctorEmail, setDoctorEmail] = useState(getSavedDoctorEmail());
   const [copied, setCopied] = useState(false);
   const [testStatus, setTestStatus] = useState<string | null>(null);
@@ -36,6 +39,7 @@ export const GoogleSheetSetupModal: React.FC<GoogleSheetSetupModalProps> = ({
 
   const handleSave = () => {
     setSavedScriptUrl(scriptUrl);
+    setSavedBackendUrl(backendUrl);
     setSavedDoctorEmail(doctorEmail);
     setTestStatus('Settings saved successfully!');
     setTimeout(() => setTestStatus(null), 3000);
@@ -160,7 +164,7 @@ export const GoogleSheetSetupModal: React.FC<GoogleSheetSetupModalProps> = ({
           {/* Step 3: Paste Webhook URL */}
           <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
             <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">
-              Step 3: Paste Your Deployed Web App URL
+              Step 3: Paste Your Deployed Web App URL (100% Free Google Script)
             </label>
             <div className="flex gap-2">
               <input
@@ -176,6 +180,33 @@ export const GoogleSheetSetupModal: React.FC<GoogleSheetSetupModalProps> = ({
                 className="px-4 py-2.5 bg-healing-700 hover:bg-healing-800 text-white rounded-xl font-bold text-xs shadow-xs"
               >
                 Save URL
+              </button>
+            </div>
+          </div>
+
+          {/* Optional: Render Free Backend URL */}
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+              <Server className="w-3.5 h-3.5 text-healing-700" />
+              <span>Step 4 (Optional): Render Backend URL (Free Tier)</span>
+            </label>
+            <p className="text-[11px] text-slate-500 mb-2">
+              If you host the provided <code className="bg-slate-200 px-1 py-0.5 rounded text-slate-800">madappallilBE</code> on Render Free Plan ($0), paste its URL here (e.g. <code className="bg-slate-200 px-1 py-0.5 rounded text-slate-800">https://madappallilbe.onrender.com</code>).
+            </p>
+            <div className="flex gap-2">
+              <input
+                type="url"
+                value={backendUrl}
+                onChange={(e) => setBackendUrl(e.target.value)}
+                placeholder="https://madappallilbe.onrender.com"
+                className="flex-1 px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-healing-500 focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={handleSave}
+                className="px-4 py-2.5 bg-healing-700 hover:bg-healing-800 text-white rounded-xl font-bold text-xs shadow-xs"
+              >
+                Save Backend
               </button>
             </div>
           </div>
