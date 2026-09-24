@@ -22,7 +22,7 @@ export const setSavedBackendUrl = (url: string): void => {
 };
 
 export const getSavedDoctorEmail = (): string => {
-  return localStorage.getItem(DOCTOR_EMAIL_KEY) || 'madappallilhomoeo@gmail.com';
+  return localStorage.getItem(DOCTOR_EMAIL_KEY) || 'geomadappallil@gmail.com';
 };
 
 export const setSavedDoctorEmail = (email: string): void => {
@@ -140,7 +140,7 @@ export const submitLead = async (data: Omit<LeadData, 'id' | 'submittedAt' | 'st
 };
 
 // Generates the ready-to-paste Google Apps Script code
-export const generateGoogleAppsScriptCode = (doctorEmail: string = 'madappallilhomoeo@gmail.com'): string => {
+export const generateGoogleAppsScriptCode = (doctorEmail: string = 'geomadappallil@gmail.com'): string => {
   return `/**
  * MADAPPALLIL HOMOEO DISPENSARY (MHD)
  * Automated Google Sheet Lead Capture & Instant Email Notification

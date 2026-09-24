@@ -98,9 +98,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenSettings, onOpenLeadsDrawe
             </h4>
             <div className="space-y-1 text-xs text-slate-400">
               <p className="text-slate-200 font-semibold">{t.clinicName}</p>
-              <p>Kerala, India</p>
-              <p className="pt-1 text-white font-semibold">Ph: +91 98470 00000</p>
-              <p className="text-slate-300 truncate">madappallilhomoeo@gmail.com</p>
+              <p>Q447+7WJ, Kattappana, Kerala 685508</p>
+              <p className="pt-1 text-white font-semibold">
+                <a href="tel:+919544548826" className="hover:text-emerald-300 transition-colors">
+                  Ph: +91 95445 48826
+                </a>
+              </p>
+              <p className="text-slate-300 truncate">
+                <a href="mailto:geomadappallil@gmail.com" className="hover:text-emerald-300 transition-colors">
+                  geomadappallil@gmail.com
+                </a>
+              </p>
             </div>
           </div>
 

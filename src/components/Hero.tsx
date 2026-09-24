@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
               </a>
 
               <a
-                href={`https://wa.me/919847000000?text=${encodeURIComponent(whatsappMsg)}`}
+                href={`https://wa.me/919544548826?text=${encodeURIComponent(whatsappMsg)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-sm shadow-xs active:scale-95 transition-all text-center"
@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
               </a>
 
               <a
-                href="tel:+919847000000"
+                href="tel:+919544548826"
                 className="flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 shadow-2xs active:scale-95 transition-all text-center"
               >
                 <Phone className="w-4 h-4 text-emerald-700" />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { submitLead, SubmitLeadResult, getSavedScriptUrl, getSavedDoctorEmail } from '../services/leadService';
+import { submitLead, SubmitLeadResult } from '../services/leadService';
 import { Confetti } from './Confetti';
 import {
   Calendar,
@@ -63,9 +63,6 @@ export const LeadBookingForm: React.FC<LeadBookingFormProps> = ({
   const [errorMessage, setErrorMessage] = useState('');
   const [confettiActive, setConfettiActive] = useState(false);
 
-  const hasScriptUrl = Boolean(getSavedScriptUrl());
-  const doctorEmail = getSavedDoctorEmail();
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
@@ -108,7 +105,7 @@ export const LeadBookingForm: React.FC<LeadBookingFormProps> = ({
   };
 
   const getWhatsAppMessageUrl = () => {
-    const phoneClean = '919847000000';
+    const phoneClean = '919544548826';
     const text =
       language === 'ml'
         ? `നമസ്കാരം, മാടപ്പള്ളിൽ ഹോമിയോ ഡിസ്പെൻസറിയിൽ ഞാൻ ഒരു കൺസൾട്ടേഷൻ അന്വേഷണം നടത്തിയിട്ടുണ്ട് (Ref: ${
@@ -120,6 +117,22 @@ export const LeadBookingForm: React.FC<LeadBookingFormProps> = ({
             formData.condition
           }. Looking forward to connecting.`;
     return `https://wa.me/${phoneClean}?text=${encodeURIComponent(text)}`;
+  };
+
+  const getEmailMessageUrl = () => {
+    const emailTo = 'geomadappallil@gmail.com';
+    const subject = `🌿 [MHD Patient Enquiry] ${formData.name} (Ref: ${submissionResult?.leadId || 'MHD'})`;
+    const body = `Patient Consultation Enquiry:
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email || 'N/A'}
+Department: ${formData.condition}
+Preferred Slot: ${formData.preferredDate || 'Flexible'} (${formData.preferredTime})
+Language: ${formData.consultLanguage}
+Symptoms / Notes: ${formData.notes || 'None'}
+
+Submitted to Madappallil Homoeo Dispensary, Kattappana (Q447+7WJ, Kattappana, Kerala 685508).`;
+    return `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -144,20 +157,15 @@ export const LeadBookingForm: React.FC<LeadBookingFormProps> = ({
           </p>
         </div>
 
-        {/* Integration Notification / Setup Pill */}
+        {/* Integration Notification / Direct Contact Pill */}
         <div className="mb-5 flex flex-wrap items-center justify-between gap-2 p-3 rounded-2xl bg-emerald-50/80 border border-emerald-200/80 text-xs text-emerald-950">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
             <span className="text-[11px] sm:text-xs">
-              {hasScriptUrl ? (
-                <>
-                  <strong className="font-bold">Google Sheet Active:</strong> Leads save and alert <span className="underline">{doctorEmail}</span>.
-                </>
-              ) : (
-                <>
-                  <strong className="font-bold">Google Sheets Ready:</strong> Leads save locally. Connect Sheet anytime.
-                </>
-              )}
+              <strong className="font-bold">{language === 'ml' ? 'നേരിട്ടുള്ള ബുക്കിംഗ്:' : 'Direct Booking:'}</strong>{' '}
+              <a href="tel:+919544548826" className="font-bold text-emerald-900 underline">+91 95445 48826</a>
+              {' • '}
+              <a href="mailto:geomadappallil@gmail.com" className="text-emerald-800 underline">geomadappallil@gmail.com</a>
             </span>
           </div>
           <button
@@ -200,6 +208,14 @@ export const LeadBookingForm: React.FC<LeadBookingFormProps> = ({
                 <span>{t.form.directWhatsappBtn}</span>
               </a>
 
+              <a
+                href={getEmailMessageUrl()}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-xs active:scale-95 transition-all"
+              >
+                <Mail className="w-4 h-4" />
+                <span>{language === 'ml' ? 'ഇമെയിൽ വഴി അയക്കുക' : 'Send via Email'}</span>
+              </a>
+
               <button
                 type="button"
                 onClick={() => {
@@ -215,9 +231,9 @@ export const LeadBookingForm: React.FC<LeadBookingFormProps> = ({
                     notes: '',
                   });
                 }}
-                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold text-xs transition-colors"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold text-xs transition-colors hover:bg-slate-100"
               >
-                Book Another Visit
+                {language === 'ml' ? 'മറ്റൊരു ബുക്കിംഗ്' : 'Book Another Visit'}
               </button>
             </div>
           </div>

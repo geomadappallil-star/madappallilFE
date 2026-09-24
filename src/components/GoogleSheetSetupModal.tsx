@@ -51,7 +51,7 @@ export const GoogleSheetSetupModal: React.FC<GoogleSheetSetupModalProps> = ({
     try {
       const res = await submitLead({
         name: 'Test Patient (Setup Verification)',
-        phone: '+91 98470 12345',
+        phone: '+91 95445 48826',
         email: doctorEmail,
         condition: 'infertility',
         preferredDate: new Date().toISOString().split('T')[0],
@@ -118,7 +118,7 @@ export const GoogleSheetSetupModal: React.FC<GoogleSheetSetupModalProps> = ({
                 type="email"
                 value={doctorEmail}
                 onChange={(e) => setDoctorEmail(e.target.value)}
-                placeholder="e.g. madappallilhomoeo@gmail.com"
+                placeholder="e.g. geomadappallil@gmail.com"
                 className="flex-1 px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-healing-500 focus:outline-none"
               />
               <button

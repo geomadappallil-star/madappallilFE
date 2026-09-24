@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSettings, onOpenLeadsDrawe
 
             {/* Quick Call Button (Desktop) */}
             <a
-              href="tel:+919847000000"
+              href="tel:+919544548826"
               className="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-700 hover:text-emerald-800 hover:bg-emerald-50 border border-slate-200 transition-colors shrink-0"
             >
               <Phone className="w-3.5 h-3.5 text-emerald-700" />
@@ -170,7 +170,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSettings, onOpenLeadsDrawe
                 {t.nav.bookConsultation}
               </a>
               <a
-                href="tel:+919847000000"
+                href="tel:+919544548826"
                 className="flex items-center justify-center gap-1 px-4 py-2.5 rounded-xl border border-slate-200 text-slate-800 font-bold text-xs"
               >
                 <Phone className="w-3.5 h-3.5 text-emerald-700" />

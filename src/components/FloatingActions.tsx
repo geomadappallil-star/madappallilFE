@@ -28,8 +28,8 @@ export const FloatingActions: React.FC = () => {
 
       {/* Direct Phone Dial */}
       <a
-        href="tel:+919847000000"
-        className="w-12 h-12 rounded-full bg-healing-700 hover:bg-healing-800 text-white shadow-lg flex items-center justify-center transition-all hover:scale-105"
+        href="tel:+919544548826"
+        className="w-12 h-12 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white shadow-lg flex items-center justify-center transition-all hover:scale-105"
         title="Call Clinic / ക്ലിനിക്കിലേക്ക് വിളിക്കുക"
         aria-label="Call Clinic"
       >
@@ -38,7 +38,7 @@ export const FloatingActions: React.FC = () => {
 
       {/* WhatsApp Quick Chat */}
       <a
-        href={`https://wa.me/919847000000?text=${encodeURIComponent(whatsappMsg)}`}
+        href={`https://wa.me/919544548826?text=${encodeURIComponent(whatsappMsg)}`}
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-sm shadow-xl transition-all hover:scale-105 active:scale-95"

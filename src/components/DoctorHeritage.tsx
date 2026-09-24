@@ -87,7 +87,7 @@ export const DoctorHeritage: React.FC = () => {
               </a>
 
               <a
-                href={`https://wa.me/919847000000?text=${encodeURIComponent(whatsappMsg)}`}
+                href={`https://wa.me/919544548826?text=${encodeURIComponent(whatsappMsg)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs shadow-xs"
@@ -97,7 +97,7 @@ export const DoctorHeritage: React.FC = () => {
               </a>
 
               <a
-                href="tel:+919847000000"
+                href="tel:+919544548826"
                 className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white text-slate-800 border border-slate-200 font-semibold text-xs shadow-xs"
               >
                 <Phone className="w-3.5 h-3.5 text-emerald-700" />

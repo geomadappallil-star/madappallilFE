@@ -37,7 +37,7 @@ export const MobileBottomBar: React.FC = () => {
 
         {/* Call Doctor */}
         <a
-          href="tel:+919847000000"
+          href="tel:+919544548826"
           className="flex flex-col items-center justify-center p-1 rounded-xl text-slate-600 hover:text-emerald-800 active:scale-95 transition-all shrink-0"
           title="Call Doctor"
         >
@@ -51,7 +51,7 @@ export const MobileBottomBar: React.FC = () => {
 
         {/* WhatsApp Direct */}
         <a
-          href={`https://wa.me/919847000000?text=${encodeURIComponent(whatsappMsg)}`}
+          href={`https://wa.me/919544548826?text=${encodeURIComponent(whatsappMsg)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center p-1 rounded-xl text-slate-600 hover:text-emerald-700 active:scale-95 transition-all shrink-0"
