@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenSettings, onOpenLeadsDrawe
                   {t.clinicName}
                 </h3>
                 <p className="text-[10px] text-amber-400 font-semibold">
-                  Estd. 35+ Years • Homoeopathic Excellence
+                  {language === 'ml' ? '1992 മുതൽ • ഹോമിയോപ്പതി പരിചരണം' : 'Estd. 1992 • Homoeopathic Excellence'}
                 </p>
               </div>
             </div>
@@ -69,23 +69,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenSettings, onOpenLeadsDrawe
             </h4>
             <ul className="space-y-1.5 text-xs text-slate-400">
               <li>
-                <a href="#infertility-section" className="hover:text-white transition-colors">
-                  Infertility Treatments
+                <a href="#specialties" className="hover:text-white transition-colors">
+                  {t.specialties.infertilityTab}
                 </a>
               </li>
               <li>
-                <a href="#infertility-section" className="hover:text-white transition-colors">
-                  PCOD / PCOS Care
+                <a href="#specialties" className="hover:text-white transition-colors">
+                  {t.specialties.mentalHealthTab}
                 </a>
               </li>
               <li>
-                <a href="#mental-health-section" className="hover:text-white transition-colors">
-                  Anxiety & Panic Relief
+                <a href="#specialties" className="hover:text-white transition-colors">
+                  {t.specialties.allergyTab}
                 </a>
               </li>
               <li>
-                <a href="#mental-health-section" className="hover:text-white transition-colors">
-                  Insomnia & Depression
+                <a href="#specialties" className="hover:text-white transition-colors">
+                  {t.specialties.hereditaryTab}
                 </a>
               </li>
             </ul>

@@ -145,7 +145,7 @@ export const ContactSection: React.FC = () => {
               </p>
             </div>
             <span className="inline-block text-[11px] text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-100 text-center mt-2">
-              {language === 'ml' ? '35+ വർഷത്തെ പരിചയം' : 'Prior Booking Recommended'}
+              {language === 'ml' ? '1992 മുതൽ സേവനരംഗത്ത്' : 'Serving Since 1992'}
             </span>
           </div>
 

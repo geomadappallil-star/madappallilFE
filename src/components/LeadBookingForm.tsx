@@ -19,11 +19,13 @@ import {
   Settings,
   Baby,
   Brain,
+  Wind,
+  Dna,
   Sparkles
 } from 'lucide-react';
 
 interface LeadBookingFormProps {
-  selectedCondition?: 'infertility' | 'mental_health' | 'general';
+  selectedCondition?: 'infertility' | 'mental_health' | 'allergy' | 'hereditary' | 'general';
   onOpenSettings: () => void;
 }
 
@@ -258,7 +260,7 @@ Submitted to Madappallil Homoeo Dispensary, Kattappana (Q447+7WJ, Kattappana, Ke
                   <Sparkles className="w-3 h-3 text-emerald-700" />
                   <span>{t.form.conditionLabel} *</span>
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, condition: 'infertility' })}
@@ -287,8 +289,34 @@ Submitted to Madappallil Homoeo Dispensary, Kattappana (Q447+7WJ, Kattappana, Ke
 
                   <button
                     type="button"
-                    onClick={() => setFormData({ ...formData, condition: 'general' })}
+                    onClick={() => setFormData({ ...formData, condition: 'allergy' })}
                     className={`flex items-center gap-2 p-2.5 rounded-xl border text-left transition-all ${
+                      formData.condition === 'allergy'
+                        ? 'border-emerald-600 bg-white text-emerald-950 font-bold ring-2 ring-emerald-600 shadow-2xs'
+                        : 'border-slate-200 bg-white/70 text-slate-700 hover:bg-white'
+                    }`}
+                  >
+                    <Wind className="w-4 h-4 text-emerald-700 shrink-0" />
+                    <span className="text-xs">{t.form.conditionAllergy}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, condition: 'hereditary' })}
+                    className={`flex items-center gap-2 p-2.5 rounded-xl border text-left transition-all ${
+                      formData.condition === 'hereditary'
+                        ? 'border-emerald-600 bg-white text-emerald-950 font-bold ring-2 ring-emerald-600 shadow-2xs'
+                        : 'border-slate-200 bg-white/70 text-slate-700 hover:bg-white'
+                    }`}
+                  >
+                    <Dna className="w-4 h-4 text-emerald-700 shrink-0" />
+                    <span className="text-xs">{t.form.conditionHereditary}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setFormData({ ...formData, condition: 'general' })}
+                    className={`flex items-center gap-2 p-2.5 rounded-xl border text-left transition-all sm:col-span-2 lg:col-span-1 ${
                       formData.condition === 'general'
                         ? 'border-emerald-600 bg-white text-emerald-950 font-bold ring-2 ring-emerald-600 shadow-2xs'
                         : 'border-slate-200 bg-white/70 text-slate-700 hover:bg-white'

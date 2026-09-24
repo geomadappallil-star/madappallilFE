@@ -5,7 +5,7 @@ export interface LeadData {
   name: string;
   phone: string;
   email: string;
-  condition: 'infertility' | 'mental_health' | 'general';
+  condition: 'infertility' | 'mental_health' | 'allergy' | 'hereditary' | 'general';
   preferredDate?: string;
   preferredTime?: string;
   language: 'English' | 'Malayalam';

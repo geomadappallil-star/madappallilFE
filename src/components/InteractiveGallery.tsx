@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Image as ImageIcon, ZoomIn, X, ChevronRight, Sparkles } from 'lucide-react';
+import { clinicImages } from '../assets/images';
 
 interface GalleryPhoto {
   id: string;
@@ -26,7 +27,7 @@ export const InteractiveGallery: React.FC = () => {
         en: 'A quiet, unhurried space designed for private and compassionate medical case consultations.',
         ml: 'രോഗികൾക്ക് അവരുടെ ശാരീരിക-മാനസിക ബുദ്ധിമുട്ടുകൾ ശാന്തമായി തുറന്നു പറയാവുന്ന അന്തരീക്ഷം.',
       },
-      imageUrl: '/images/hero_clinic.jpg',
+      imageUrl: clinicImages.heroClinic,
     },
     {
       id: 'infertility-1',
@@ -37,7 +38,7 @@ export const InteractiveGallery: React.FC = () => {
         en: 'Natural homoeopathic conception support for couples facing PCOD, low sperm count, and unexplained delays.',
         ml: 'PCOD, ബീജക്കുറവ്, മറ്റ് പ്രത്യുൽപാദന പ്രശ്നങ്ങൾ എന്നിവയ്ക്ക് പാർശ്വഫലങ്ങളില്ലാത്ത ചികിത്സ.',
       },
-      imageUrl: '/images/infertility.jpg',
+      imageUrl: clinicImages.infertility,
     },
     {
       id: 'mental-1',
@@ -48,7 +49,7 @@ export const InteractiveGallery: React.FC = () => {
         en: 'Gentle remedies that restore restful sleep, calm panic attacks, and alleviate depression naturally.',
         ml: 'മയക്കുമരുന്നുകളോ അടിമപ്പെടലോ ഇല്ലാതെ ഉത്കണ്ഠയ്ക്കും ഉറക്കക്കുറവിനും ശാശ്വത ആശ്വാസം.',
       },
-      imageUrl: '/images/mental_health.jpg',
+      imageUrl: clinicImages.mentalHealth,
     },
     {
       id: 'remedies-1',
@@ -59,7 +60,7 @@ export const InteractiveGallery: React.FC = () => {
         en: 'Dynamized homoeopathic remedies that stimulate the body’s innate self-healing response.',
         ml: 'ശരീരത്തിന്റെ രോഗപ്രതിരോധ ശേഷിയെ ഉണർത്തുന്ന പ്രകൃതിദത്ത ഹോമിയോ മരുന്നുകൾ.',
       },
-      imageUrl: '/images/remedies.jpg',
+      imageUrl: clinicImages.remedies,
     },
   ];
 

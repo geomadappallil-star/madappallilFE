@@ -16,12 +16,12 @@ import { GoogleSheetSetupModal } from './components/GoogleSheetSetupModal';
 import { AdminLeadsDrawer } from './components/AdminLeadsDrawer';
 
 export function AppContent() {
-  const [selectedCondition, setSelectedCondition] = useState<'infertility' | 'mental_health' | 'general'>('infertility');
+  const [selectedCondition, setSelectedCondition] = useState<'infertility' | 'mental_health' | 'allergy' | 'hereditary' | 'general'>('infertility');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isLeadsDrawerOpen, setIsLeadsDrawerOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-warmth-50 font-sans selection:bg-healing-200 selection:text-healing-900 text-slate-800 pb-16 md:pb-0">
+    <div className="min-h-screen bg-warmth-50 font-sans selection:bg-healing-200 selection:text-healing-900 text-slate-800 pb-20 md:pb-0">
       
       {/* Top Sticky Navbar */}
       <Navbar

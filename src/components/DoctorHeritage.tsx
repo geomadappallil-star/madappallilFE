@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Award, CheckCircle2, Phone, MessageSquare } from 'lucide-react';
+import { clinicImages } from '../assets/images';
 
 export const DoctorHeritage: React.FC = () => {
   const { language, t } = useLanguage();
@@ -20,7 +21,7 @@ export const DoctorHeritage: React.FC = () => {
             <div className="relative mx-auto max-w-sm">
               <div className="rounded-2xl overflow-hidden shadow-md border-2 border-white bg-white">
                 <img
-                  src="/images/hero_clinic.jpg"
+                  src={clinicImages.heroClinic}
                   alt="Chief Homoeopathic Physician"
                   className="w-full h-[280px] sm:h-[360px] object-cover object-center"
                 />
@@ -34,7 +35,7 @@ export const DoctorHeritage: React.FC = () => {
                     </p>
                   </div>
                   <span className="bg-amber-500 text-white font-black text-xs px-2 py-1 rounded-md">
-                    35+ Yrs
+                    {language === 'ml' ? '1992 മുതൽ' : 'Since 1992'}
                   </span>
                 </div>
               </div>

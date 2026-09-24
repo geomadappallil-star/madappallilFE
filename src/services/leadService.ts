@@ -226,7 +226,7 @@ function doPost(e) {
           "</div>" +
         "</div>" +
         "<div style='background-color: #eef5f1; padding: 12px; text-align: center; font-size: 12px; color: #666;'>" +
-          "Madappallil Homoeo Dispensary • 35+ Years of Healing Excellence • Automated Lead System" +
+          "Madappallil Homoeo Dispensary • Serving Families Since 1992 • Automated Lead System" +
         "</div>" +
       "</div>";
 

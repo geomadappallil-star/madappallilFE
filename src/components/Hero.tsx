@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Award, Calendar, Phone, MessageSquare, ShieldCheck, Heart, ArrowRight } from 'lucide-react';
+import { clinicImages } from '../assets/images';
 
 export const Hero: React.FC = () => {
   const { language, t } = useLanguage();
@@ -79,7 +80,7 @@ export const Hero: React.FC = () => {
               </div>
               <div className="flex items-center gap-1">
                 <Heart className="w-3.5 h-3.5 text-rose-500" />
-                <span>35+ Years Wisdom</span>
+                <span>{language === 'ml' ? '1992 മുതൽ' : 'Since 1992'}</span>
               </div>
               <div className="flex items-center gap-1">
                 <ArrowRight className="w-3.5 h-3.5 text-amber-600" />
@@ -96,7 +97,7 @@ export const Hero: React.FC = () => {
               {/* Photo Frame */}
               <div className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-white bg-white">
                 <img
-                  src="/images/hero_clinic.jpg"
+                  src={clinicImages.heroClinic}
                   alt="Madappallil Homoeo Dispensary Consultation"
                   className="w-full h-[240px] sm:h-[340px] object-cover object-center"
                 />
@@ -112,7 +113,7 @@ export const Hero: React.FC = () => {
                         {t.clinicName}
                       </p>
                       <p className="text-[10px] text-emerald-700 font-medium">
-                        Chief Homoeopathic Physician • 35+ Yrs
+                        {language === 'ml' ? 'ചീഫ് ഫിസിഷ്യൻ • 1992 മുതൽ' : 'Chief Homoeopathic Physician • Since 1992'}
                       </p>
                     </div>
                   </div>
